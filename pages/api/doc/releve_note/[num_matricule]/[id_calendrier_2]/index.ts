@@ -11,6 +11,8 @@ import {
 } from "@/utils/releveNoteFunction";
 import Data_releve from "@/models/note_1/Data_releve";
 import { generateDocx } from "@/utils/docxGenerator";
+import path from "path";
+import fs from "fs";
 
 export default async function handler(
   req: NextApiRequest,
