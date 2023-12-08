@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: local("DM Sans"),
+    url("./../public/font/DM_Sans/static/DMSans_36pt-Regular.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins Bold"), local("Poppins-Bold"),
+    url("./../public/font/Poppins/Poppins-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-regular";
+  src: local("Poppins-regular"), local("Poppins-regular"),
+    url("./../public/font/Poppins/Poppins-Regular.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  @apply text-base tracking-wide text-gray-900;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer components {
+  .flex-2 {
+    flex: 2;
+  }
+}
+
+@layer components {
+  .tooltip-modifier {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .tooltip-modifier:after {
+    font-size: 10px;
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #e7b416;
+    color: #ffffff;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
+
+  .tooltip-modifier:hover:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@layer components {
+  .tooltip-supprimer {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .tooltip-supprimer:after {
+    font-size: 10px;
+    letter-spacing: 0.025rem;
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #f44336;
+    color: #ffffff;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
+
+  .tooltip-supprimer:hover:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@layer components {
+  .tooltip-info {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .tooltip-info:after {
+    font-size: 10px;
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #3b82f6;
+    color: #ffffff;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
+
+  .tooltip-info:hover:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.input-login {
+  @apply h-[56px] px-4 py-2 w-[500px] border-2 border-blue-600 outline-none rounded-lg;
+}
+
+/*========================== CUSTOM ROUNDED ======================*/
+.rounded-custom {
+  border-radius: 12% 4%;
+}
+/*========================== RADIAL BG ======================*/
+.bg-radial {
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+}
+/*========================== TEXT-STYLE ======================*/
+.h1 {
+  @apply font-poppins text-2xl tracking-wide uppercase;
+}
+
+.h2 {
+  @apply text-xl font-medium tracking-wide;
+}
+
+.h3 {
+  @apply text-lg  font-thin tracking-wide;
+}
+
+/*========================== TABLE STYLE ======================*/
+
+.input-form {
+  @apply p-2 appearance-none rounded-md bg-white border-gray-700 border-[1px] focus:border-blue-500 focus:outline-none;
+}
+.container-col-div-input {
+  @apply flex flex-col flex-2 gap-2 mb-5;
+}
+.container-row-div-input {
+  @apply flex flex-row gap-16  w-fit;
+}
+
+.container-input {
+  @apply flex flex-col gap-2 w-[340px] h-[auto];
+}
+.select-form {
+  @apply w-[340px] h-[40px] rounded-md bg-white text-sm border-gray-700 border-[1px] px-2;
+}
+.button-form {
+  @apply h-[40px] w-[340px]  flex items-center text-base justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md border-0;
+}
+.button-form-short {
+  @apply h-[40px] pl-4 pr-6 py-2 w-fit flex items-center text-base tracking-wider justify-center bg-blue-500 hover:bg-blue-600 text-white  rounded-md border-0 inset-2 shadow-md shadow-blue-300;
+}
+.button-add-info {
+  @apply h-[40px] w-fit px-4  flex flex-row gap-2 items-center text-base justify-center border-blue-600  bg-blue-200   rounded-md  hover:bg-blue-300 inset-2 shadow-md shadow-blue-300;
+}
+.button-cancel-form {
+  @apply h-[40px] w-fit px-4  flex items-center text-base justify-center border-blue-600  bg-blue-200   rounded-md  hover:bg-blue-300;
+}
+/*========================== TABLE STYLE ======================*/
+.custom-table {
+  @apply min-w-full divide-y divide-gray-200 absolute;
+}
+.table-header {
+  @apply bg-gray-100 text-black;
+}
+.table-header-cell {
+  @apply px-1 py-4 text-base font-light text-gray-800  tracking-wider;
+  max-width: 80px;
+}
+.table-row {
+  @apply bg-white even:bg-blue-50;
+}
+.table-row-cell {
+  @apply px-1 py-2 whitespace-nowrap text-sm font-light text-gray-800;
+}
+.table-row-cell-email {
+  @apply text-sm text-blue-500 underline;
+}
+.icon-xl {
+  font-size: 1.25rem; /* Adjust this value according to your needs */
+}
+.button-info {
+  @apply tooltip-info bg-blue-500  text-white font-semibold py-[2px] pl-3 pr-4 rounded-lg text-[12px] flex items-center justify-center;
+}
+/*========================== CLIP PATH ======================*/
+.clipPathArrowRight {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+
+/*========================== Relevée de note ======================*/
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
