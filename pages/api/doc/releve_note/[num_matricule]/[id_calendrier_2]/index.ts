@@ -69,8 +69,11 @@ export default async function handler(
             : "Non validé";
         validation_tab.push(validation);
       });
-
+      const imagePath = path.resolve(process.cwd(), "public/img/logo.png");
+      const imageBuffer = fs.readFileSync(imagePath);
+      const imageBase64 = imageBuffer.toString("base64");
       const data: Data_releve = {
+        imageBase64: imageBase64,
         result: result,
         moy_ue_tab: moy_ue_tab,
         validation_tab: validation_tab,
